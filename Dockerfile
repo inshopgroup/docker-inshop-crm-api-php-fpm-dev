@@ -1,4 +1,4 @@
-FROM inshopgroup/crm-api-docker-php-fpm-prod
+FROM inshopgroup/docker-inshop-crm-api-php-fpm-prod
 
 # install xdebug
 RUN pecl install xdebug
