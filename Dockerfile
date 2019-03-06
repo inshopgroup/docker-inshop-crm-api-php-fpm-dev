@@ -10,5 +10,10 @@ RUN echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-
 RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+# disable opcache
+RUN echo "opcache.enable=0" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
+RUN echo "opcache.enable_cli=0" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
+RUN echo "opcache.validate_timestamps=1" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
+
 #clean
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
