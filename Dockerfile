@@ -15,5 +15,10 @@ RUN echo "opcache.enable=0" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
 RUN echo "opcache.enable_cli=0" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
 RUN echo "opcache.validate_timestamps=1" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
 
+# code sniffer
+RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
+    cp phpcs.phar /usr/local/bin/phpcs && \
+    chmod +x /usr/local/bin/phpcs
+
 #clean
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
