@@ -1,4 +1,4 @@
-FROM inshopgroup/docker-inshop-crm-api-php-fpm-prod:latest
+FROM inshopgroup/docker-inshop-crm-api-php-fpm-prod:php8.1
 
 # install xdebug
 RUN pecl install xdebug
@@ -18,9 +18,9 @@ RUN echo "opcache.validate_timestamps=1" >> /usr/local/etc/php/conf.d/docker-php
 RUN echo "memory_limit = 4096M" >> /usr/local/etc/php/conf.d/docker-php-custom.ini
 
 # code sniffer
-RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
-    cp phpcs.phar /usr/local/bin/phpcs && \
-    chmod +x /usr/local/bin/phpcs
+#RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
+#    cp phpcs.phar /usr/local/bin/phpcs && \
+#    chmod +x /usr/local/bin/phpcs
 
 #clean
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
